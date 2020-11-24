@@ -13,18 +13,18 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       prizes.belongsToMany(models.users, {
         through: models.prizemaster,
-        foreignKey: 'prizeID',
-        otherKey: 'userID'
+        foreignKey: 'prize_id',
+        otherKey: 'user_id'
       });
     }
   };
   prizes.init({
-    prizeName: DataTypes.STRING,
-    pointCost: DataTypes.INTEGER
+    name: DataTypes.STRING,
+    pointcost: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'prizes',
     underscored: true,
   });
-  return prizese;
+  return prizes;
 };

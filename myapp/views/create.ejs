@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title><%= title %></title>
+</head>
+<main role="main" class="container"></main>
+
+<body>
+  <%- include("./share/navbar.ejs")%>
+  <form action="/post/create" method="POST">
+    <div class="border-bottom mt-5 mb-5">
+      <%  if(locals.user) { %>
+      <div class="panel-body">Wellcome : <%= user.username %></div>
+      <% } %>
+      <h1><%= title %></h1>
+
+      <div>
+        <label for="titles">タイトル:</label>
+        <div>
+          <input type="text" class="form-control" id="authors" name="title" />
+        </div>
+      </div>
+      <div>
+        <label for="content">コンテンツ:</label>
+        <div>
+          <textarea type="text" class="form-control" id="content" name="content" cols="40" rows="10"></textarea>
+        </div>
+      </div>
+      <% if (locals.errors) { %>
+      <% if (errors && errors.length !== 0) { for(let i = 0 ; i < errors.length;i++) { %>
+      <div class="alert alert-danger"><%= errors[i].msg %></div>
+      <% }}} %>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">投稿する</button>
+  </form>
+  </div>
+  </main><!-- /.container -->
+  <script language="javascript" type="text/javascript" src="#"></script>
+</body>
+
+</html>

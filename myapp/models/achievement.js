@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   achievement.init({
-    achievementName: DataTypes.STRING
+    name: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'achievement',

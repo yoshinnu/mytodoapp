@@ -8,10 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      prizeName: {
+      name: {
         type: Sequelize.STRING
       },
-      pointCost: {
+      pointcost: {
         type: Sequelize.INTEGER
       },
       created_at: {

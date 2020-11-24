@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   loglikes.init({
-    userID: DataTypes.INTEGER,
-    logID: DataTypes.INTEGER
+    user_id: DataTypes.INTEGER,
+    log_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'loglikes',

@@ -14,13 +14,13 @@ module.exports = (sequelize, DataTypes) => {
       logs.belongsToMany(models.users, {
         through: models.loglikes,
         onDelete: 'CASCADE',
-        foreignKey: 'logID',
-        otherKey: 'userID'
+        foreignKey: 'log_id',
+        otherKey: 'user_id'
       });
     }
   };
   logs.init({
-    logText: DataTypes.STRING,
+    text: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'logs',

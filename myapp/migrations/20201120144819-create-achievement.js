@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      achievementName: {
+      name: {
         type: Sequelize.STRING
       },
       created_at: {

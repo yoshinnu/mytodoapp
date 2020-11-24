@@ -1,0 +1,31 @@
+API key: kPYlWhoNuytEKnidVXJwcDLvR
+
+API key secret:
+WpIrSWf5GHI14UtaCNl5pglsDGszt86K1XMPQ4JglS9OiPpisP
+
+Bearer token
+AAAAAAAAAAAAAAAAAAAAAOVdIAEAAAAAU%2Ba7Bf%2BjQ7EiyCPDDWfmtEYvxcc%3DYjwkej16Jvg9bYo3wZdkY3eoCurG21XHQowIPdetzdkWgMtemf
+
+
+Access token:
+
+1098997616753356801-t6pL0XmnuESo0rdaD30YnwIUgPGABR
+
+Access token secret:
+
+88ntEaqKbiJl6sx4pkzTZJyeRPVXa1xThn0L0NmRmwpPd
+
+
+todoapp
+
+API key: ccxUjGTqmjk2l93XNCkHhEtEN
+
+API key secret: VlSiJmLvfMbqoeniARE9iimAlgCGDYNoOaQdlBn3u6M7osv3Jd
+
+Bearer token:AAAAAAAAAAAAAAAAAAAAAMMWKAEAAAAAjSBDkgA1Vq7V3ZlTeEBoy8trjUg%3DSumfiuEbHZv5vSG5mKOyC0seankA6rlMxz8tJ69UFwT9ThAhye
+
+Access token:
+1310141763487588353-w5Y8blatGmObcEjjjRdQTsg1Y8SNv9
+
+Access token secret:
+2uJD77Ybl3LrmSltjFVHv5lIXgB9VQIjBCCoSCI6fQuVU

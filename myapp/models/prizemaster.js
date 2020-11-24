@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   prizemaster.init({
-    userID: DataTypes.INTEGER,
-    prizeID: DataTypes.INTEGER
+    user_id: DataTypes.INTEGER,
+    prize_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'prizemaster',

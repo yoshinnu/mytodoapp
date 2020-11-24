@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userName: {
+      username: {
         allowNull: false,
         type: Sequelize.STRING
       },
@@ -24,17 +24,17 @@ module.exports = {
       point: {
         type: Sequelize.INTEGER
       },
-      achivementID: {
+      achivement_id: {
         type: Sequelize.INTEGER
       },
-      twitterID: {
+      twitter_id: {
         type: Sequelize.STRING
       },
-      isAdmin: {
+      is_admin: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      loginDate: {
+      login_date: {
         allowNull: false,
         type: Sequelize.INTEGER
       },

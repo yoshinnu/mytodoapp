@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userID: {
+      user_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
@@ -17,19 +17,19 @@ module.exports = {
           key: 'id'
         }
       },
-      todoTitle: {
+      title: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      todoText: {
+      text: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      todoStatus: {
+      status: {
         allowNull: false,
         type: Sequelize.BOOLEAN
       },
-      todolimit: {
+      limit: {
         allowNull: false,
         type: Sequelize.INTEGER
       },

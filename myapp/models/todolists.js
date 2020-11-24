@@ -18,11 +18,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   todolists.init({
-    userID: DataTypes.INTEGER,
-    todoTitle: DataTypes.STRING,
-    todoText: DataTypes.STRING,
-    todoStatus: DataTypes.BOOLEAN,
-    todolimit: DataTypes.INTEGER
+    user_id: DataTypes.INTEGER,
+    title: DataTypes.STRING,
+    text: DataTypes.STRING,
+    status: DataTypes.BOOLEAN,
+    limit: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'todolists',
