@@ -1,8 +1,8 @@
 const db = require('./database/databaseController.js');
 const { validationResult } = require('express-validator');
-const bcrypt = require('bcrypt');
+const auth = require('./auth/authController.js');
 //新規登録ページへ
-const getSignUpPage = (req, res) => {
+const getSignUpPage = async (req, res) => {
   res.status(200).render('register.ejs', { title: 'SignUp' });
 };
 /**新規ユーザー登録
@@ -10,28 +10,14 @@ const getSignUpPage = (req, res) => {
  * 2 重複emailの確認 →　重複無しuser登録HOME画面へ
  */
 const postCreateUser = async (req, res) => {
-  // 1
+  // formのerror確認
   let errors = validationResult(req);
   if (!errors.isEmpty()) {
     errors = errors.array();
     console.error(errors);
-    res.status(422).render('../views/register.ejs', { errors, title: 'SignUp' });
-    return;
+    return res.status(422).render('../views/register.ejs', { errors, title: 'SignUp' });
   }
-  // 2
-  const defaultPoint = 100;
-  const password = req.body.password;
-  const hashedPassword = bcrypt.hashSync(password, 10);
-  const date = getCurrentDate();
-  const user = {
-    username: req.body.username,
-    email: req.body.email,
-    password: hashedPassword,
-    point: defaultPoint,
-    achivement_id: 1,
-    is_admin: 1,
-    login_date: date
-  }
+  //emailの重複を確認
   const userCount = await db.getUserCountByemail(req.body).catch((error) => {
     console.error(error);
   });
@@ -39,25 +25,15 @@ const postCreateUser = async (req, res) => {
     const message = '登録済みのメールアドレスです。';
     res.status(400).render("register", { title: 'SignUp', message: message });
   } else {
-    db.createUser(user).catch(error => {
+    const user = await db.createUser(req.body).catch(error => {
       console.error(error);
-      res.status(400).redirect('/signup', { title: 'SignUp', message: 'もう一度登録してください。' })
+      return res.status(400)
     });
-    res.status(200).render('home.ejs', { title: 'Home', user: user })
+    auth.createToken(res, user);
+    return res.status(200).render('home.ejs', { title: 'Home', user })
   }
 };
 module.exports = {
   getSignUpPage,
   postCreateUser,
-}
-
-/**現在日時取得関数
- * 引数　　なし
- * 戻り値　int 現在日時
- */
-function getCurrentDate() {
-  require('date-utils');
-  const now = new Date();
-  let date = now.toFormat('YYYYMMDDHH24');
-  return date;
 }

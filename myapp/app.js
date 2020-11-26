@@ -3,9 +3,10 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const registerRouter = require('./routes/register');
-const loginRouter = require('./routes/login');
-const homeRouter = require('./routes/home');
+const registerRouter = require('./routes/register.js');
+const loginRouter = require('./routes/login.js');
+const homeRouter = require('./routes/home.js');
+const clientRouter = require('./routes/client.js');
 const app = express();
 
 // view engine setup
@@ -22,6 +23,8 @@ app.use('/', loginRouter);
 app.use('/signup', registerRouter);
 //home
 app.use('/home', homeRouter);
+//client
+app.use('/client', clientRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

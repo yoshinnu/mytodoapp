@@ -27,7 +27,7 @@ module.exports = {
       },
       status: {
         allowNull: false,
-        type: Sequelize.BOOLEAN
+        type: Sequelize.INTEGER
       },
       limit: {
         allowNull: false,
