@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     text: DataTypes.STRING,
     status: DataTypes.INTEGER,
-    limit: DataTypes.INTEGER
+    limit: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'todolists',

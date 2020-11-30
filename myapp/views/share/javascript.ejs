@@ -8,15 +8,13 @@
   </script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
-<script>
+<script type="text/javascript">
+  //calendar設定
   flatpickr.localize(flatpickr.l10ns.ja);
   flatpickr('#calendar', {
-    allowInput: true,
     minDate: "today",
     enableTime: true
   });
-</script>
-<script type="text/javascript">
   function check() {
     if (window.confirm('送信してよろしいですか？')) { // 確認ダイアログを表示
       return true; // 「OK」時は送信を実行

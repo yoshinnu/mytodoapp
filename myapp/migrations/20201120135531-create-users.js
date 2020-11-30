@@ -36,7 +36,7 @@ module.exports = {
       },
       login_date: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.DATE
       },
       created_at: {
         allowNull: false,

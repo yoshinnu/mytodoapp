@@ -28,19 +28,23 @@ const signupCheck =
         return true;
       })
   ];
-const postCheck = [
+const todoCheck = [
   check("title")
     .not()
     .isEmpty()
     .withMessage("タイトルを入力してください。"),
-  check("content")
+  check("text")
     .not()
     .isEmpty()
-    .withMessage("名前を入力してください。")
+    .withMessage("テキストを入力してください。")
     .isLength({ min: undefined, max: 140 })
-    .withMessage("140文字以内で入力してください。")
+    .withMessage("140文字以内で入力してください。"),
+  check('limit')
+    .not()
+    .isEmpty()
+    .withMessage('日付を選択してください。'),
 ];
 module.exports = {
   signupCheck,
-  postCheck
+  todoCheck
 }

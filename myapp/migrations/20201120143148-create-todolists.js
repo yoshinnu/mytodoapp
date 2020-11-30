@@ -10,6 +10,7 @@ module.exports = {
       },
       user_id: {
         allowNull: false,
+        unique: true,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
@@ -31,7 +32,7 @@ module.exports = {
       },
       limit: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       created_at: {
         allowNull: false,

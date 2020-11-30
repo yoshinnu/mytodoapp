@@ -30,7 +30,7 @@ const postCreateUser = async (req, res) => {
       return res.status(400)
     });
     auth.createToken(res, user);
-    return res.status(200).render('home.ejs', { title: 'Home', user })
+    return res.status(200).redirect('/home')
   }
 };
 module.exports = {

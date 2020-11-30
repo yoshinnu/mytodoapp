@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     achivement_id: DataTypes.INTEGER,
     twitter_id: DataTypes.STRING,
     is_admin: DataTypes.INTEGER,
-    login_date: DataTypes.INTEGER
+    login_date: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'users',

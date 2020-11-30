@@ -4,7 +4,6 @@ const createToken =
   function (res, user) {
     const options = { expiresIn: process.env.JWT_EXP };
     //tokenにuseridをセット
-    console.log(user.id);
     const payload = {
       id: user.id
     };
