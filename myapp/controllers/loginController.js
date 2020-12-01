@@ -1,8 +1,6 @@
 const db = require('./database/databaseController')
 const bcrypt = require('bcrypt');
 const auth = require('./auth/authController');
-const dateClass = require('./class/dataFormat.js');
-const format = new dateClass();
 //ログイン画面へ
 const getLoginPage = (req, res) => {
   res.status(200).render('login.ejs', { title: 'Login' })
@@ -19,10 +17,15 @@ const postLoginUser = async (req, res) => {
       console.error(error);
       res.status(400);
     });
+  if (user.is_admin === 0) {
+    // jwt作成
+    auth.createToken(res, user);
+    // home画面へ
+    return res.status(200).redirect('/home');
+  }
   if (user && user.email === req.body.email && bcrypt.compareSync(req.body.password, user.password)) {
     // jwt作成
     auth.createToken(res, user);
-
     // home画面へ
     return res.status(200).redirect('/home');
   } else {

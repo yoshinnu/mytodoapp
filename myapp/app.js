@@ -6,6 +6,7 @@ const logger = require('morgan');
 const registerRouter = require('./routes/register.js');
 const loginRouter = require('./routes/login.js');
 const homeRouter = require('./routes/home.js');
+const adminRouter = require('./routes/admin.js');
 const clientRouter = require('./routes/client.js');
 const app = express();
 
@@ -23,6 +24,8 @@ app.use('/', loginRouter);
 app.use('/signup', registerRouter);
 //home
 app.use('/home', homeRouter);
+//admin
+app.use('/admin', adminRouter);
 //client
 app.use('/client', clientRouter);
 // catch 404 and forward to error handler

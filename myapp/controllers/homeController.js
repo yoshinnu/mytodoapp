@@ -9,7 +9,14 @@ const getHomePage = async (req, res) => {
     .catch((error) => {
       console.error(error);
     });
-  res.status(200).render('home.ejs', { title: 'Home', user });
+  if (Number(user.is_admin) === 1) {
+    res.status(200).render('home.ejs', { title: 'Home', user });
+  } else {
+    const users = await db.getUserAll().catch((error) => {
+      console.error(error);
+    });
+    res.status(200).render('adminhome.ejs', { title: '管理者Home', user, users });
+  }
 }
 //todocreate画面へ
 const getTodoCreatePage = (req, res) => {
@@ -49,7 +56,11 @@ const getShopPage = async (req, res) => {
   } else {
     prizeList = prizeAll;
   }
-  res.status(200).render('shop.ejs', { title: 'Shop', user, prizeList });
+  if (Number(user.is_admin) === 0) {
+    return res.status(200).render('adminshop.ejs', { title: 'Admin Shop', user, prizeList: prizeAll });
+  } else {
+    return res.status(200).render('shop.ejs', { title: 'Shop', user, prizeList });
+  }
 }
 /**関数　todoDATAをデータベースに挿入
  * 引数　req,res

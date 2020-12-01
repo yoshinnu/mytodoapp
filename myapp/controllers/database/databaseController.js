@@ -37,6 +37,10 @@ const getUserByEmail = function (userEmail) {
     }
   })
 };
+//get user all
+const getUserAll = function () {
+  return model.users.findAll();
+};
 //get user by id
 const getUserById = function (userId) {
   return model.users.findByPk(userId);
@@ -53,6 +57,11 @@ const getUserPrizeById = function (userId) {
     }
   });
 }
+//user delete by id
+const deleteUserById = function (userId) {
+  return model.users.destroy({ where: { id: userId } });
+};
+
 //user update point by id
 const putSelectUserPointById = function (userId, user) {
   return model.users.update(user, { where: { id: userId } });
@@ -116,11 +125,20 @@ const createPrizeMaster = function (userId, prizeId) {
 //select prizemaster by userid
 const getPrizeIdByUserId = function (userId) {
   return model.prizemaster.findAll({ where: { user_id: userId } });
+};
+//create prize
+const createPrizeData = function (prizeData) {
+  return model.prizes.create(prizeData);
+}
+//update prize by id
+const putPrizeById = function (prizeId, prizeDate) {
+  return model.prizes.update(prizeDate, { where: { id: prizeId } });
 }
 module.exports = {
   createUser,
   getUserCountByemail,
   getUserByEmail,
+  getUserAll,
   getUserById,
   createTodoData,
   getTodoById,
@@ -134,5 +152,7 @@ module.exports = {
   createPrizeMaster,
   putSelectUserPointById,
   getPrizeIdByUserId,
-
+  deleteUserById,
+  createPrizeData,
+  putPrizeById,
 }

@@ -44,7 +44,7 @@ module.exports =
       const result = cutDate[0] + '/' + cutDate[1];
       return result;
     };
-    formatTodoData(todoList) {
+    formatTodoListLimitData(todoList) {
       todoList.forEach(todo => {
         const limit = String(todo.limit);
         const cutDate = limit.match(/.{2}/g);
