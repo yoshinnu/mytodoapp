@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'user_id',
         sourceKey: 'id'
       });
+      users.hasMany(models.logs, {
+        foreignKey: 'user_id',
+        sourceKey: 'id'
+      });
     }
   };
   users.init({

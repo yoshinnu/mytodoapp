@@ -1,5 +1,6 @@
 const db = require('./database/databaseController.js');
 const { validationResult } = require('express-validator');
+const log = require('./logs/logController.js');
 const auth = require('./auth/authController.js');
 //新規登録ページへ
 const getSignUpPage = async (req, res) => {
@@ -30,6 +31,8 @@ const postCreateUser = async (req, res) => {
       return res.status(400)
     });
     auth.createToken(res, user);
+    //logの登録
+    log.logRegister(req.body.username, req.body.id);
     return res.status(200).redirect('/home')
   }
 };

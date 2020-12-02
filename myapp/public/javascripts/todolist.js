@@ -1,6 +1,7 @@
 
 let todoLists;
 let user;
+let logs;
 const todobox = document.getElementById('todobox');
 const userName = document.getElementById('username');
 const doingBtn = document.getElementById('doingBtn');
@@ -10,7 +11,7 @@ const uncheckBtn = 'btn btn-secondary my-2';
 
 //EVENT
 //初期画面作成
-window.addEventListener('load', getTodoList);
+window.addEventListener('load', getHomeDisplay);
 //完了済みtodo表示イベント
 compliteBtn.addEventListener('click', compeleteTodolist);
 
@@ -20,12 +21,13 @@ compliteBtn.addEventListener('click', compeleteTodolist);
  * fetchで/client/tododataから取得
  * 戻り値　なし
  */
-async function getTodoList() {
+async function getHomeDisplay() {
   //todolist取得
   const res = await fetch('/client/tododata');
   const body = await res.json();
   todoLists = body.todoList;
   user = body.user;
+  logs = body.logs;
   const loginflg = body.loginflg;
   userName.textContent = user.username;
   //login check
@@ -33,6 +35,9 @@ async function getTodoList() {
     user.point = loginBonus(user.point);
     await postUserPoint(user.point);
   }
+  //logs
+  postLogData(logs);
+  //todolist 
   todoLists.forEach(todo => {
     if (todo.status >= 0) {
       todoCardCreate(todo);
@@ -190,6 +195,84 @@ function compeleteTodolist() {
   })
 };
 
+/**logを表示させる処理
+ * 引数　logs
+ * 戻り値　なし 
+ */
+function postLogData(logs) {
+  const logbox = document.getElementById('logbox');
+  const emptyHeart = 'far fa-heart';
+  const checkedHeart = 'fas fa-heart';
+  let i = 0;
+  logs.forEach(log => {
+    const text = document.createElement('li');
+    const like = document.createElement('a');
+    const likeCount = document.createElement('a');
+    const heart = document.createElement('i');
+
+    text.textContent = log.text;
+    logbox.appendChild(text);
+    if (log.userLike) {
+      heart.className = checkedHeart;
+      like.addEventListener('click', likeCheckDelete);
+    } else {
+      heart.className = emptyHeart;
+      like.addEventListener('click', likeCheck);
+    }
+    heart.id = 'heart' + i;
+    like.value = i;
+    like.href = '#';
+    like.id = 'like' + i;
+    like.style.textDecoration = 'none';
+    likeCount.id = 'count' + i;
+    likeCount.textContent = log.likeCount;
+    like.appendChild(heart);
+    text.appendChild(like);
+    text.appendChild(likeCount);
+    i++;
+  });
+  //いいねした時の処理
+  function likeCheck() {
+    const num = this.value;
+    const heart = document.getElementById('heart' + num);
+    const logId = logs[num].id;
+    const count = document.getElementById('count' + num);
+    const logIdObj = { logId };
+    const method = 'POST';
+    const body = Object.keys(logIdObj).map((key) => key + '=' + encodeURIComponent(logIdObj[key])).join('&');
+    this.removeEventListener('click', likeCheck);
+    const headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+    };
+    heart.className = checkedHeart;
+    count.textContent++;
+    fetch("/client/like/create", { method, headers, body })
+      .then(res => {
+        this.addEventListener('click', likeCheckDelete);
+      }).catch(console.error);
+  }
+  function likeCheckDelete() {
+    const num = this.value;
+    const heart = document.getElementById('heart' + num);
+    const logId = logs[num].id;
+    const count = document.getElementById('count' + num);
+    const logIdObj = { logId };
+    const method = 'POST';
+    const body = Object.keys(logIdObj).map((key) => key + '=' + encodeURIComponent(logIdObj[key])).join('&');
+    const headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+    };
+    heart.className = emptyHeart;
+    this.removeEventListener('click', likeCheckDelete);
+    count.textContent--;
+    fetch('/client/like/delete', { method, headers, body })
+      .then(res => {
+        this.addEventListener('click', likeCheck);
+      }).catch(console.error);
+  }
+}
 /**loginbounusがあった場合の処理
  * popup作成
  * 引数　user.point

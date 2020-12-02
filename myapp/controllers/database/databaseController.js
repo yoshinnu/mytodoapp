@@ -129,10 +129,31 @@ const getPrizeIdByUserId = function (userId) {
 //create prize
 const createPrizeData = function (prizeData) {
   return model.prizes.create(prizeData);
-}
+};
 //update prize by id
 const putPrizeById = function (prizeId, prizeDate) {
   return model.prizes.update(prizeDate, { where: { id: prizeId } });
+};
+//Logs
+//create log register
+const createLogs = function (log) {
+  return model.logs.create(log);
+};
+//select log all
+const getLogsAll = function () {
+  return model.logs.findAll();
+};
+//select loglikes all
+const getLikesAll = function () {
+  return model.loglikes.findAll();
+};
+//create loglikes 
+const createLogLikes = (like) => {
+  return model.loglikes.create(like);
+};
+//delete loglikes
+const deleteLogLikes = (like) => {
+  return model.loglikes.destroy({ where: like });
 }
 module.exports = {
   createUser,
@@ -155,4 +176,9 @@ module.exports = {
   deleteUserById,
   createPrizeData,
   putPrizeById,
+  createLogs,
+  getLogsAll,
+  getLikesAll,
+  createLogLikes,
+  deleteLogLikes,
 }

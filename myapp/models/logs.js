@@ -17,9 +17,15 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'log_id',
         otherKey: 'user_id'
       });
+      logs.belongsTo(models.users, {
+        onDelete: 'CASCADE',
+        foreinKey: 'id'
+      });
     }
+
   };
   logs.init({
+    user_id: DataTypes.INTEGER,
     text: DataTypes.STRING,
   }, {
     sequelize,

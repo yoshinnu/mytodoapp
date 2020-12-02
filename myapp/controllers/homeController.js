@@ -2,6 +2,7 @@ const db = require('../controllers/database/databaseController.js');
 const dateClass = require('./class/dataFormat.js');
 const format = new dateClass();
 const { validationResult } = require('express-validator');
+const log = require('./logs/logController.js');
 //HOME画面へ
 const getHomePage = async (req, res) => {
   //user情報取得
@@ -135,6 +136,11 @@ const postTodoDelete = async (req, res) => {
 
 //todoを完了済みにする処理
 const postTodocomplete = async (req, res) => {
+  //user情報取得
+  const user = await db.getUserById(req.decoded.id)
+    .catch((error) => {
+      console.error(error);
+    });
   //更新データ定義
   const userPoint = {
     point: Number(req.body.point) + 100
@@ -165,7 +171,8 @@ const postTodocomplete = async (req, res) => {
   await db.putSelectUserPointById(req.decoded.id, userPoint).catch((error) => {
     console.error(error);
   });
-  console.log('point.update end')
+  //log登録
+  log.logTodoDone(user, todo.title);
   res.status(200).redirect('/home');
 };
 

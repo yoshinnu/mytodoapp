@@ -14,7 +14,17 @@ const getTodolistData = async (req, res) => {
   const todoList = await db.getTodolistById(req.decoded.id).catch((error) => {
     console.error(error);
   });
-  return res.status(200).json({ todoList, user, loginflg });
+  //log取得
+  const logData = await db.getLogsAll().catch((error) => {
+    console.error(error);
+  });
+  // loglikes取得
+  const logLikes = await db.getLikesAll().catch((error) => {
+    console.error(error);
+  });
+  const logs = format.formatLogsData(logData, logLikes, user);
+  console.log(logs);
+  return res.status(200).json({ todoList, user, loginflg, logs });
 };
 //user point 更新
 const postUserPoint = async (req, res) => {
@@ -28,7 +38,31 @@ const postUserPoint = async (req, res) => {
   });
   return res.status(200).send('OK');
 };
+//loglikecheck
+const postLogLikeCreate = async function (req, res) {
+  const like = {
+    user_id: req.decoded.id,
+    log_id: req.body.logId
+  }
+  await db.createLogLikes(like).catch((error) => {
+    console.error(error);
+  });
+  res.status(200).send('OK');
+};
+//loglike delete
+const postLogLikeDelete = async (req, res) => {
+  const like = {
+    user_id: req.decoded.id,
+    log_id: req.body.logId
+  }
+  await db.deleteLogLikes(like).catch((error) => {
+    console.error(error);
+  });
+  res.status(200).send('OK');
+};
 module.exports = {
   getTodolistData,
   postUserPoint,
+  postLogLikeCreate,
+  postLogLikeDelete,
 }

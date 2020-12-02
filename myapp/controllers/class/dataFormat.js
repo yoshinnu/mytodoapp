@@ -84,5 +84,21 @@ module.exports =
       })
       return list[0];
     };
-
+    //logDataのformat
+    formatLogsData(logs, likes, user) {
+      const formatLogs = [];
+      logs.forEach(log => {
+        const userLike = likes.find(like => like.log_id === log.id && like.user_id === user.id) ? true : false;
+        const count = likes.filter(like => like.log_id === log.id);
+        const logData = {
+          id: log.id,
+          text: log.text,
+          user_id: log.user_id,
+          likeCount: count.length,
+          userLike
+        }
+        formatLogs.push(logData);
+      })
+      return formatLogs;
+    }
   }
