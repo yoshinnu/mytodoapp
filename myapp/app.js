@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const schedule = require('./controllers/schedule/schedule.js');
 const registerRouter = require('./routes/register.js');
 const loginRouter = require('./routes/login.js');
 const homeRouter = require('./routes/home.js');
@@ -28,6 +29,9 @@ app.use('/home', homeRouter);
 app.use('/admin', adminRouter);
 //client
 app.use('/client', clientRouter);
+
+//mailerscedule
+schedule.limitTodoEmail();
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
@@ -43,5 +47,4 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 module.exports = app;

@@ -62,8 +62,49 @@ module.exports =
       date = limitDate.toFormat('YYYY/MM/DD');
       date = date.split('/');
       const result = date[0] + '-' + date[1] + '-' + date[2] + ' ' + cutDate[1];
-      console.log('kousingo' + '  ' + result);
       return result;
+    }
+    //limitdateの期限確認
+    checkLimitDate(limit) {
+      const cutDate = limit.split(' ');
+      let date = cutDate[0].split('-');
+      const limitDate = new Date(date[0], date[1] - 1, date[2]);
+      const limitBeforeOne = new Date(limitDate.getFullYear(), limitDate.getMonth(), limitDate.getDate() - 1);
+
+      const year1 = limitBeforeOne.getFullYear();
+      const month1 = limitBeforeOne.getMonth() + 1;
+      const day1 = limitBeforeOne.getDate();
+      const year2 = this.current.getFullYear();
+      const month2 = this.current.getMonth() + 1;
+      const day2 = this.current.getDate();
+      if (year1 == year2 && month1 === month2 && day1 === day2) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+    checkLimitOverDate(limit) {
+      const cutDate = limit.split(' ');
+      let date = cutDate[0].split('-');
+      const limitDate = new Date(date[0], date[1] - 1, date[2]);
+
+      const year1 = limitBeforeOne.getFullYear();
+      const month1 = limitBeforeOne.getMonth() + 1;
+      const day1 = limitBeforeOne.getDate();
+      const year2 = this.current.getFullYear();
+      const month2 = this.current.getMonth() + 1;
+      const day2 = this.current.getDate();
+
+      if (year1 == year2) {
+        if (month1 == month2) {
+          return day1 < day2;
+        }
+        else {
+          return month1 < month2;
+        }
+      } else {
+        return year1 < year2;
+      }
     }
     //userのprize情報整理
     formatUserUnPrizeInfo(prizeAll, prizeMaster) {

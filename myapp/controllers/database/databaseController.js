@@ -81,7 +81,7 @@ const getTodolistById = function (userId) {
     where: { user_id: userId }
   });
 };
-//get todolist all by id and status
+//get todolist all by user id and status
 const getCompeleteTodolistByIdAndStatus = function (userId) {
   return model.todolists.findAll({
     where: {
@@ -91,6 +91,10 @@ const getCompeleteTodolistByIdAndStatus = function (userId) {
       }
     }
   });
+};
+//get todolist all 
+const getTodoAll = function () {
+  return model.todolists.findAll();
 };
 //update todo one 
 const PutSelectTodo = function (todoData) {
@@ -181,4 +185,5 @@ module.exports = {
   getLikesAll,
   createLogLikes,
   deleteLogLikes,
+  getTodoAll,
 }
