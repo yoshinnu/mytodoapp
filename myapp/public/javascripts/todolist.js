@@ -70,14 +70,14 @@ function todoCardCreate(todo) {
   const updateForm = document.createElement('form');
   const deleteForm = document.createElement('form');
   const small = document.createElement('small');
-
+  const cardSkin = user.select_style;
   //todocard作成
   card.className = 'col-md-3';
   todobox.appendChild(card);
   cardShadow.className = 'card mb-3 shadow-sm';
   cardShadow.style.borderRadius = '10px';
   card.appendChild(cardShadow);
-  cardBody.className = 'card-body todocard font-weight-bold';
+  cardBody.className = 'card-body todocard font-weight-bold ' + cardSkin;
   // cardBody.style.backgroundImage = "url('/public/images/expectrum-1191724_1280.png')"
   cardBody.style.borderRadius = '10px';
   cardShadow.appendChild(cardBody);
@@ -170,14 +170,14 @@ function compeleteTodolist() {
       const list2 = document.createElement('li');
       const title = document.createElement('h4');
       const text = document.createElement('p');
-
+      const cardSkin = user.select_style;
       //todocard作成
       card.className = 'col-md-3 ';
       compTodobox.appendChild(card);
       cardShadow.className = 'card mb-3 shadow-sm';
       cardShadow.style.borderRadius = '10px';
       card.appendChild(cardShadow);
-      cardBody.className = 'card-body todocard font-weight-bold';
+      cardBody.className = 'card-body todocard font-weight-bold ' + cardSkin;
       cardBody.style.borderRadius = '10px';
       cardShadow.appendChild(cardBody);
       listbox.className = 'list-unstyled';

@@ -52,7 +52,7 @@ const getShopPage = async (req, res) => {
   //userがprizeを持っていたら
   let prizeList;
   if (prizeMaster.length !== 0) {
-    //prizeListにuserの持っているprize情報を格納
+    //prizeListにuserの持っていないprize情報を格納
     prizeList = format.formatUserUnPrizeInfo(prizeAll, prizeMaster);
   } else {
     prizeList = prizeAll;
@@ -113,14 +113,13 @@ const postEditTodo = async (req, res) => {
   //更新データ作成
 
   const todoData = {
+    id: req.body.id,
     title: req.body.title,
     text: req.body.text,
     limit: req.body.limit,
     status: req.body.status
   }
-  console.log(req.body.limit);
-  todoData.limit = format.formatDateToInt(todoData.limit);
-  await db.PutSelectTodo(todoData).catch((error) => {
+  await db.putSelectTodo(todoData).catch((error) => {
     console.error(error);
   });
   return res.status(200).redirect('/home')

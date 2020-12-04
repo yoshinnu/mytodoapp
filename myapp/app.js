@@ -9,6 +9,7 @@ const loginRouter = require('./routes/login.js');
 const homeRouter = require('./routes/home.js');
 const adminRouter = require('./routes/admin.js');
 const clientRouter = require('./routes/client.js');
+const userRouter = require('./routes/user.js');
 const app = express();
 
 // view engine setup
@@ -29,7 +30,8 @@ app.use('/home', homeRouter);
 app.use('/admin', adminRouter);
 //client
 app.use('/client', clientRouter);
-
+//user
+app.use('/user', userRouter);
 //mailerscedule
 schedule.limitTodoEmail();
 // catch 404 and forward to error handler

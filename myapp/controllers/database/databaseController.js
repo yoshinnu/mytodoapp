@@ -66,6 +66,10 @@ const deleteUserById = function (userId) {
 const putSelectUserPointById = function (userId, user) {
   return model.users.update(user, { where: { id: userId } });
 }
+//user update
+const putSelectUserById = function (userId, user) {
+  return model.users.update(user, { where: { id: userId } });
+}
 //TODO
 //create todo 
 const createTodoData = function (todoData) {
@@ -97,7 +101,7 @@ const getTodoAll = function () {
   return model.todolists.findAll();
 };
 //update todo one 
-const PutSelectTodo = function (todoData) {
+const putSelectTodo = function (todoData) {
   return model.todolists.update(todoData, { where: { id: todoData.id } });
 };
 //update todo one status by id
@@ -168,7 +172,7 @@ module.exports = {
   createTodoData,
   getTodoById,
   getTodolistById,
-  PutSelectTodo,
+  putSelectTodo,
   putStatusTodoById,
   deleteTodoByid,
   getCompeleteTodolistByIdAndStatus,
@@ -176,6 +180,7 @@ module.exports = {
   getPrizeAll,
   createPrizeMaster,
   putSelectUserPointById,
+  putSelectUserById,
   getPrizeIdByUserId,
   deleteUserById,
   createPrizeData,

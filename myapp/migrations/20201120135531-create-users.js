@@ -24,6 +24,9 @@ module.exports = {
       point: {
         type: Sequelize.INTEGER
       },
+      select_style: {
+        type: Sequelize.STRING
+      },
       achivement_id: {
         type: Sequelize.INTEGER
       },

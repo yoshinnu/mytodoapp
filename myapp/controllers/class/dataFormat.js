@@ -30,17 +30,9 @@ module.exports =
       }
     };
 
-    //todo limit 日付成形メソッド string　→　integer
-    formatDateToInt(date) {
-      const cutDate = date.substring(2);
-      const result = cutDate.replace(/[^0-9]/g, '');
-      return result;
-    };
-    //todo limit 日付成形メソッド integer　→ string
+    //todo limit 日付成形メソッド
     formatDateToString(limit) {
-      console.log(limit);
       const cutDate = limit.split(' ');
-      console.log(cutDate);
       const result = cutDate[0] + '/' + cutDate[1];
       return result;
     };
@@ -120,7 +112,7 @@ module.exports =
     formatUserPrizeInfo(prizeAll, prizeMaster) {
       const list = [];
       prizeMaster.forEach(master => {
-        const result = prizeAll.filter(prize => prize.id !== master.prize_id);
+        const result = prizeAll.filter(prize => prize.id === master.prize_id);
         list.push(result);
       })
       return list[0];

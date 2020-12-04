@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+  <%- include("./share/stylesheets.ejs") %>
+  <meta charset=" utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Jekyll v3.8.5">
+  <title><%= title %></title>
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+</head>
+
+<body style="background-color: rgb(39, 39, 41);">
+
+  <main role="main">
+    <section class="jumbotron text-center edit-create-bg">
+      <div class="container">
+        <h1 class="jumbotron-heading font-weight-bold"><%= title %></h1>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="col-md-6 mx-auto">
+          <div class="card mb-6 mx-auto shadow-sm" style="border-radius: 10px;">
+
+            <div class="card-body" style="border-radius: 10px;">
+              <form action="/user/setting/post" method="POST" onsubmit="return check()" id="usersetting">
+                <div>
+                  <label>name: </label>
+                  <input type="text" name="username" class="text-black" value=<%= user.username %>>
+                </div>
+                <div>
+                  <label>email: </label>
+                  <input type="email" name="email" class="text-black" value=<%= user.email %>>
+                </div>
+                <div>
+                  <label>Select Card: </label>
+                  <select id="select" name="select_style">
+                    <option value="">default</option>
+                    <% for(let i =0; i < prizeList.length; i++) { %>
+                    <option value=<%= prizeList[i].name %>><%= prizeList[i].id%></option>
+                    <% } %>
+                  </select>
+                </div>
+                <% if (locals.errors) { %>
+                <% if (errors && errors.length !== 0) { for(let i = 0 ; i < errors.length;i++) { %>
+                <div class="alert alert-danger"><%= errors[i].msg %></div>
+                <% }}} %>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <input type="submit" class="btn btn-sm btn-outline-secondary" id="btn-done" value="Done">
+                    <input type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='/home'"
+                      value="Back">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <%- include("./share/footer.ejs") %>
+  <%- include("./share/javascript.ejs") %>
+  <script src="#"></script>
+</body>
+
+</html>

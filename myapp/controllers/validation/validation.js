@@ -28,6 +28,17 @@ const signupCheck =
         return true;
       })
   ];
+const updateCheck =
+  [
+    check("email")
+      .not()
+      .isEmpty()
+      .withMessage("メールアドレスを入力してください。"),
+    check("username")
+      .not()
+      .isEmpty()
+      .withMessage("名前を入力してください。")
+  ];
 const todoCheck = [
   check("title")
     .not()
@@ -46,5 +57,6 @@ const todoCheck = [
 ];
 module.exports = {
   signupCheck,
+  updateCheck,
   todoCheck
 }

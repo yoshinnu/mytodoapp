@@ -13,19 +13,17 @@ const limitTodoEmail = function () {
     const users = await getUsersAll().catch(error => {
       console.error(error);
     });
-    console.log(users);
-    todoList.forEach(todo => {
+    todoList.forEach(async (todo) => {
       if (format.checkLimitOverDate(todo.limit)) {
         await db.deleteTodoByid(todo.id).catch(error => {
           console.error(error);
         });
       }
       if (format.checkLimitDate(todo.limit)) {
-        console.log('sendmail');
         const todoUser = users.find(user => todo.user_id === user.id);
         const title = 'mytodoからのお知らせ';
         const text = todoUser.username + 'さんの' + todo.title + 'の期限一日前です。'
-        mailer.sendMail(title, text, 'yyoshitaka2020@yahoo.co.jp');
+        mailer.sendMail(title, text, user.email);
       }
     })
   });
@@ -39,4 +37,4 @@ const getUsersAll = () => {
   const users = db.getUserAll();
   return users;
 };
-module.exports = { limitTodoEmail, myjob }
+module.exports = { limitTodoEmail }
