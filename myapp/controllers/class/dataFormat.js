@@ -80,9 +80,9 @@ module.exports =
       let date = cutDate[0].split('-');
       const limitDate = new Date(date[0], date[1] - 1, date[2]);
 
-      const year1 = limitBeforeOne.getFullYear();
-      const month1 = limitBeforeOne.getMonth() + 1;
-      const day1 = limitBeforeOne.getDate();
+      const year1 = limitDate.getFullYear();
+      const month1 = limitDate.getMonth() + 1;
+      const day1 = limitDate.getDate();
       const year2 = this.current.getFullYear();
       const month2 = this.current.getMonth() + 1;
       const day2 = this.current.getDate();

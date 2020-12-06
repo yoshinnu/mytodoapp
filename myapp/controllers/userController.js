@@ -35,8 +35,6 @@ const postUserInfo = async (req, res) => {
     console.error(errors);
     return res.status(422).render('../views/register.ejs', { errors, title: 'SignUp' });
   }
-  console.log(req.body.select_style);
-  console.log(req.body.username);
   const user = {
     username: req.body.username,
     email: req.body.email,
