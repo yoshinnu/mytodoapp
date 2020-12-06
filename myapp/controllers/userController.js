@@ -2,6 +2,7 @@ const db = require('./database/databaseController.js');
 const { validationResult } = require('express-validator');
 const dateClass = require('./class/dataFormat.js');
 const format = new dateClass();
+const mailer = require('./schedule/mailer.js');
 const getUserSettingPage = async (req, res) => {
   //user情報取得
   const user = await db.getUserById(req.decoded.id)
@@ -46,7 +47,19 @@ const postUserInfo = async (req, res) => {
   });
   res.status(200).redirect('/home');
 }
+//お問い合わせ画面へ
+const getUserMailPage = (req, res) => {
+  res.status(200).render('usermail.ejs', { title: 'Contact Us' });
+};
+//お問い合わせ送信
+const postUserSend = async (req, res) => {
+  const receiveMailAdrres = process.env.EMAILADRESS;
+  await mailer.sendMail(req.body.title, req.body.text, receiveMailAdrres);
+  res.redirect('/');
+}
 module.exports = {
   getUserSettingPage,
   postUserInfo,
+  getUserMailPage,
+  postUserSend
 }
