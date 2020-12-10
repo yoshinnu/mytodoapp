@@ -1,0 +1,58 @@
+<!doctype html>
+<html id="html">
+
+<head>
+  <%- include("./share/stylesheets.ejs") %>
+  <meta charset=" utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Jekyll v3.8.5">
+  <title><%= title %></title>
+
+
+  <!-- Custom styles for this template -->
+</head>
+
+<body style="background-color: rgb(39, 39, 41);" id="body">
+  <%- include("./share/navbar.ejs") %>
+  <main role="main">
+    <section class="jumbotron home home-bg">
+      <strong>
+        <h1 class="jumbotron-heading text-black home">My Todo</h1>
+        <p class="text-black" id="username"></p>
+      </strong>
+      <div class="container" style="min-height: 250px;">
+
+      </div>
+    </section>
+    <div class="album text-center" style="background-color: rgb(251, 246, 246);">
+      <strong>Log</strong>
+      <small style="color: crimson;">※他のユーザーにいいねをしてみよう！</small>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <a href="/home" class="btn btn-primary my-2" id="doingBtn" style="width: 150px;">DoingTodo</a>
+            <a href="#" class="btn btn-secondary my-2" id='compliteBtn' style="width: 150px;">CompliteTodo</a>
+            <a href="/home/todo" class="btn btn-secondary my-2" style="width: 150px;">Create Todo</a>
+          </div>
+          <div class="col-md-9 text-left" id="logs">
+            <div class="card mb-9 shadow-sm scroll">
+              <div class="card-body py-1" style="min-height: 200px; max-height: 200px;">
+                <ul class="list-unstyled text-left" id="logbox">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container py-5">
+        <div class="row" id="todobox">
+        </div>
+      </div>
+    </div>
+  </main>
+  <%- include("./share/footer.ejs") %>
+  <%- include("./share/javascript.ejs") %>
+  <script src="/public/javascripts/todolist.js"></script>
+</body>
+
+</html>

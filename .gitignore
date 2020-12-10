@@ -1,0 +1,8 @@
+/myapp/node_modules
+/myapp/seeders
+/twwiter_debelop_app_token.txt
+/docker/db/data
+/myapp/app.env
+/docker/db/mysqldb.env
+/myapp/migrations/20201203133345-users.js
+/myapp/dbtest.js

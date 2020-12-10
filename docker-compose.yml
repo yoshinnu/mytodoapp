@@ -3,8 +3,8 @@ version: '3'
 services:
   
   db:
-    image: mysql:5.7.28
-    container_name: mysqldb
+    image: mysql:8.0
+    container_name: mysqldb3
     env_file: ./docker/db/mysqldb.env
     environment:
       TZ: 'Asia/Tokyo'
@@ -17,7 +17,8 @@ services:
     - 3306:3306
     
   app:
-    image: node:current-alpine
+    build: .
+    container_name: nodeapp
     env_file: ./myapp/app.env
     environment:
       - TZ=Asia/Tokyo
@@ -27,6 +28,5 @@ services:
       - '3000:3000'
     volumes:
       - ./myapp:/app
-    working_dir: /app
     depends_on: 
       - db

@@ -1,0 +1,329 @@
+.divider-text {
+  position: relative;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.divider-text span {
+  padding: 7px;
+  font-size: 12px;
+  position: relative;   
+  z-index: 2;
+}
+.divider-text:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  top: 55%;
+  left: 0;
+  z-index: 1;
+}
+.btn-twitter {
+  background-color: #42AEEC;
+  color: #fff;
+}
+:root {
+  --jumbotron-padding-y: 3rem;
+}
+
+.jumbotron {
+  padding-top: var(--jumbotron-padding-y);
+  padding-bottom: var(--jumbotron-padding-y);
+  margin-bottom: 0;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: calc(var(--jumbotron-padding-y) * 2);
+    padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+.login-layer {
+  /* 初期表示は非表示 */
+  position: absolute; 
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.20;
+}
+.login-popup {
+ /* 初期表示は非表示 */
+  position: absolute; 
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  height: 300px;
+  margin-left: -150px;
+  margin-top: -100px;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+.home {/*親div*/
+  position: relative;/*相対配置*/
+  }
+
+.home h1 {
+  position: absolute;/*絶対配置*/
+  color: black;/*文字は白に*/
+  font-weight: bold; /*太字に*/
+  font-size: 4em;/*サイズ2倍*/
+  font-family :Quicksand, sans-serif;/*Google Font*/
+  top: 20;
+  left: 40;
+  }
+
+.home img {
+  width: 100%;
+  }
+.shop-cardstyle-title{
+  font-weight: bold; /*太字に*/
+  font-size: 2em;/*サイズ2倍*/
+}
+.scroll{
+  overflow-y: scroll;
+  background-color: cornsilk;
+	background-size: 10px 10px;
+	background-position: 0 0, 5px 5px;
+	background-image:
+	 linear-gradient(45deg, white 25%,white 25%, transparent 25%,
+	  transparent 75%,white 75%,white 75%),
+	 linear-gradient(-135deg,white 25%,white 25%, transparent 25%,
+	  transparent 75%,white 75%,white 75%);
+  border: #222 ,4px;
+  border-style: solid;
+}
+.kimetu {
+	background-image: url(/public/images/tanjiro.png);
+	background-position: left top;
+	background-repeat: no-repeat;
+  background-size: 100% auto;
+  
+}
+.home-bg{
+  background-image: url('/public/images/home.jpg');
+  background-position: left top;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+}
+.edit-create-bg{
+  background-image: url('/public/images/editcreate.png');
+  background-position: left top;
+	background-repeat: repeat;
+	background-size: 100% auto;
+}
+.shop-bg{
+  background-image: url('/public/images/shop.jpg');
+  background-position: left top;
+	background-repeat: repeat;
+	background-size: 100% auto;
+}
+
+.todocard{
+  background-color: rgb(255, 240, 250);
+	background-size: 10px 10px;
+	background-image:
+	 linear-gradient(45deg,  white 25%, white 25%, transparent 25%,
+	  transparent 75%, white 75%, white 75%),
+	 linear-gradient(-45deg, white 25%, white 25%, transparent 25%,
+	  transparent 75%, white 75%, white 75%);
+}
+.shopcard{
+  min-height: 250px;
+}
+.tanjiro {
+  background: 
+  linear-gradient(45deg, #3cc 25%, transparent 25%, transparent 75%, #3cc 75%) 0 0 / 60px 60px,
+  linear-gradient(45deg, #3cc 25%, transparent 25%, transparent 75%, #3cc 75%) 30px 30px / 60px 60px,
+  #222;
+}
+.zenitsu {
+  background:
+  linear-gradient(120deg, transparent 90%, #fff 90%) 0 0 / 40px 40px,
+  linear-gradient(-120deg, transparent 90%, #fff 90%) 0 0 / 40px 40px,
+  linear-gradient(120deg, transparent 90%, #fff 90%) 20px 20px / 40px 40px,
+  linear-gradient(-120deg, transparent 90%, #fff 90%) 20px 20px / 40px 40px,
+    linear-gradient(#ff3, #f63);
+}
+.giyu {
+  background:
+  /* Yellow */
+  linear-gradient(30deg, #ff0 6.2%, transparent 6.2%) 125px 132px / 100px 176px,
+  linear-gradient(-30deg, #ff0 6.2%, transparent 6.2%) 125px 132px / 100px 176px,
+  linear-gradient(150deg, #ff0 6.2%, transparent 6.2%) 125px 132px / 100px 176px,
+  linear-gradient(-150deg, #ff0 6.2%, transparent 6.2%) 125px 132px / 100px 176px,
+  linear-gradient(30deg, #ff0 6.2%, transparent 6.2%) 100px 88px / 100px 176px,
+  linear-gradient(-30deg, #ff0 6.2%, transparent 6.2%) 100px 88px / 100px 176px,
+  linear-gradient(150deg, #ff0 6.2%, transparent 6.2%) 100px 88px / 100px 176px,
+  linear-gradient(-150deg, #ff0 6.2%, transparent 6.2%) 100px 88px / 100px 176px,
+  linear-gradient(30deg, #ff0 6.2%, transparent 6.2%) 75px 44px / 100px 176px,
+  linear-gradient(-30deg, #ff0 6.2%, transparent 6.2%) 75px 44px / 100px 176px,
+  linear-gradient(150deg, #ff0 6.2%, transparent 6.2%) 75px 44px / 100px 176px,
+  linear-gradient(-150deg, #ff0 6.2%, transparent 6.2%) 75px 44px / 100px 176px,
+  linear-gradient(30deg, #ff0 6.2%, transparent 6.2%) 50px 0 / 100px 176px,
+  linear-gradient(-30deg, #ff0 6.2%, transparent 6.2%) 50px 0 / 100px 176px,
+  linear-gradient(150deg, #ff0 6.2%, transparent 6.2%) 50px 0 / 100px 176px,
+  linear-gradient(-150deg, #ff0 6.2%, transparent 6.2%) 50px 0 / 100px 176px,
+  
+  /* Dark Green */
+  linear-gradient(150deg, #242 6.2%, transparent 6.2%) 75px 132px / 100px 176px,
+  linear-gradient(-150deg, #242 6.2%, transparent 6.2%) 75px 132px / 100px 176px,
+  linear-gradient(30deg, #242 6.2%, transparent 6.2%) 75px 132px / 100px 176px,
+  linear-gradient(-30deg, #242 6.2%, transparent 6.2%) 75px 132px / 100px 176px,
+  linear-gradient(30deg, #242 6.2%, transparent 6.2%) 50px 88px / 100px 176px,
+  linear-gradient(-30deg, #242 6.2%, transparent 6.2%) 50px 88px / 100px 176px,
+  linear-gradient(150deg, #242 6.2%, transparent 6.2%) 50px 88px / 100px 176px,
+  linear-gradient(-150deg, #242 6.2%, transparent 6.2%) 50px 88px / 100px 176px,
+  linear-gradient(30deg, #242 6.2%, transparent 6.2%) 25px 44px / 100px 176px,
+  linear-gradient(-30deg, #242 6.2%, transparent 6.2%) 25px 44px / 100px 176px,
+  linear-gradient(150deg, #242 6.2%, transparent 6.2%) 25px 44px / 100px 176px,
+  linear-gradient(-150deg, #242 6.2%, transparent 6.2%) 25px 44px / 100px 176px,
+  linear-gradient(150deg, #242 6.2%, transparent 6.2%) 0 0 / 100px 176px,
+  linear-gradient(-150deg, #242 6.2%, transparent 6.2%) 0 0 / 100px 176px,
+  linear-gradient(30deg, #242 6.2%, transparent 6.2%) 0 0 / 100px 176px,
+  linear-gradient(-30deg, #242 6.2%, transparent 6.2%) 0 0 / 100px 176px,
+  
+  /* Orange */
+  linear-gradient(-30deg, #f93 3.7%, transparent 3.7%) 100px 152px / 100px 176px,
+  linear-gradient(150deg, #f93 3.7%, transparent 3.7%) 86px 152px / 100px 176px,
+  linear-gradient(-30deg, #f93 3.7%, transparent 3.7%) 100px 161px / 100px 176px,
+  linear-gradient(150deg, #f93 3.7%, transparent 3.7%) 86px 161px / 100px 176px,
+  linear-gradient(30deg, #f93 3.7%, transparent 3.7%) 150px 152px / 100px 176px,
+  linear-gradient(-150deg, #f93 3.7%, transparent 3.7%) 64px 152px / 100px 176px,
+  linear-gradient(30deg, #f93 3.7%, transparent 3.7%) 150px 161px / 100px 176px,
+  linear-gradient(-150deg, #f93 3.7%, transparent 3.7%) 64px 161px / 100px 176px,
+  linear-gradient(-30deg, #f93 3.7%, transparent 3.7%) 75px 108px / 100px 176px,
+  linear-gradient(150deg, #f93 3.7%, transparent 3.7%) 61px 108px / 100px 176px,
+  linear-gradient(-30deg, #f93 3.7%, transparent 3.7%) 75px 117px / 100px 176px,
+  linear-gradient(150deg, #f93 3.7%, transparent 3.7%) 61px 117px / 100px 176px,
+  linear-gradient(30deg, #f93 3.7%, transparent 3.7%) 125px 108px / 100px 176px,
+  linear-gradient(-150deg, #f93 3.7%, transparent 3.7%) 39px 108px / 100px 176px,
+  linear-gradient(30deg, #f93 3.7%, transparent 3.7%) 125px 117px / 100px 176px,
+  linear-gradient(-150deg, #f93 3.7%, transparent 3.7%) 39px 117px / 100px 176px,
+  linear-gradient(-30deg, #f93 3.7%, transparent 3.7%) 50px 64px / 100px 176px,
+  linear-gradient(150deg, #f93 3.7%, transparent 3.7%) 36px 64px / 100px 176px,
+  linear-gradient(-30deg, #f93 3.7%, transparent 3.7%) 50px 73px / 100px 176px,
+  linear-gradient(150deg, #f93 3.7%, transparent 3.7%) 36px 73px / 100px 176px,
+  linear-gradient(30deg, #f93 3.7%, transparent 3.7%) 100px 64px / 100px 176px,
+  linear-gradient(-150deg, #f93 3.7%, transparent 3.7%) 14px 64px / 100px 176px,
+  linear-gradient(30deg, #f93 3.7%, transparent 3.7%) 100px 73px / 100px 176px,
+  linear-gradient(-150deg, #f93 3.7%, transparent 3.7%) 14px 73px / 100px 176px,
+  linear-gradient(-30deg, #f93 3.7%, transparent 3.7%) 25px 20px / 100px 176px,
+  linear-gradient(150deg, #f93 3.7%, transparent 3.7%) 11px 20px / 100px 176px,
+  linear-gradient(-30deg, #f93 3.7%, transparent 3.7%) 25px 29px / 100px 176px,
+  linear-gradient(150deg, #f93 3.7%, transparent 3.7%) 11px 29px / 100px 176px,
+  linear-gradient(30deg, #f93 3.7%, transparent 3.7%) 75px 20px / 100px 176px,
+  linear-gradient(-150deg, #f93 3.7%, transparent 3.7%) -11px 20px / 100px 176px,
+  linear-gradient(30deg, #f93 3.7%, transparent 3.7%) 75px 29px / 100px 176px,
+  linear-gradient(-150deg, #f93 3.7%, transparent 3.7%) -11px 29px / 100px 176px,
+  
+  /* Orange line */
+  linear-gradient(110deg, #222 4%, transparent 4%) 85px 152px / 100px 176px,
+  linear-gradient(-110deg, #222 4%, transparent 4%) 65px 152px / 100px 176px,
+  linear-gradient(110deg, #222 4%, transparent 4%) 60px 108px / 100px 176px,
+  linear-gradient(-110deg, #222 4%, transparent 4%) 40px 108px / 100px 176px,
+  linear-gradient(110deg, #222 4%, transparent 4%) 35px 64px / 100px 176px,
+  linear-gradient(-110deg, #222 4%, transparent 4%) 15px 64px / 100px 176px,
+  linear-gradient(110deg, #222 4%, transparent 4%) 10px 20px / 100px 176px,
+  linear-gradient(-110deg, #222 4%, transparent 4%) -10px 20px / 100px 176px,
+  
+  /* Light Orange line */
+  linear-gradient(110deg, #fc3 7%, transparent 7%) 81px 149px / 100px 176px,
+  linear-gradient(110deg, #222 7%, transparent 7%) 80px 149px / 100px 176px,
+  linear-gradient(110deg, #fc3 7%, transparent 7%) 56px 105px / 100px 176px,
+  linear-gradient(110deg, #222 7%, transparent 7%) 55px 105px / 100px 176px,
+  linear-gradient(110deg, #fc3 7%, transparent 7%) 31px 61px / 100px 176px,
+  linear-gradient(110deg, #222 7%, transparent 7%) 30px 61px / 100px 176px,
+  linear-gradient(110deg, #fc3 7%, transparent 7%) 6px 17px / 100px 176px,
+  linear-gradient(110deg, #222 7%, transparent 7%) 5px 17px / 100px 176px,
+  linear-gradient(-110deg, #fc3 7%, transparent 7%) 69px 149px / 100px 176px,
+  linear-gradient(-110deg, #222 7%, transparent 7%) 70px 149px / 100px 176px,
+  linear-gradient(-110deg, #fc3 7%, transparent 7%) 44px 105px / 100px 176px,
+  linear-gradient(-110deg, #222 7%, transparent 7%) 45px 105px / 100px 176px,
+  linear-gradient(-110deg, #fc3 7%, transparent 7%) 19px 61px / 100px 176px,
+  linear-gradient(-110deg, #222 7%, transparent 7%) 20px 61px / 100px 176px,
+  linear-gradient(-110deg, #fc3 7%, transparent 7%) -6px 17px / 100px 176px,
+  linear-gradient(-110deg, #222 7%, transparent 7%) -5px 17px / 100px 176px,
+
+  /* Light Orange */
+  linear-gradient(41deg, #fc3 16.8%, transparent 16.8%) 150px 176px / 100px 176px,
+  linear-gradient(-139deg, #fc3 16.8%, transparent 16.8%) 100px 132px / 100px 176px,
+  linear-gradient(41deg, #fc3 16.8%, transparent 16.8%) 125px 132px / 100px 176px,
+  linear-gradient(-139deg, #fc3 16.8%, transparent 16.8%) 75px 88px / 100px 176px,
+  linear-gradient(41deg, #fc3 16.8%, transparent 16.8%) 100px 88px / 100px 176px,
+  linear-gradient(-139deg, #fc3 16.8%, transparent 16.8%) 50px 44px / 100px 176px,
+  linear-gradient(41deg, #fc3 16.8%, transparent 16.8%) 75px 44px / 100px 176px,
+  linear-gradient(-139deg, #fc3 16.8%, transparent 16.8%) 25px 0 / 100px 176px,
+  #393;
+  
+}
+.giyu::before,
+.giyu::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
+  mix-blend-mode: multiply;
+  z-index: -1;
+}
+.giyu::before {
+  background:
+  linear-gradient(-135deg, #fff 21%, transparent 21%) 38px 29px / 50px 88px,
+  linear-gradient(45deg, #fff 21%, transparent 21%) 60px 58px / 50px 88px,
+  linear-gradient(-135deg, #fff 21%, transparent 21%) 14px -15px / 50px 88px,
+  linear-gradient(45deg, #fff 21%, transparent 21%) 35px 13px / 50px 88px,
+  linear-gradient(90deg, #222 1px, transparent 1px) 0 0 / 25px 88px,
+  #fff;
+}
+.giyu::after {
+  background:
+  /* Black Line */
+  linear-gradient(-30deg, transparent 4.5%, #222 4.5%, #222 5%, transparent 5%) 100px 149px / 100px 176px,
+  linear-gradient(-30deg, transparent 4.5%, #222 4.5%, #222 5%, transparent 5%) 75px 105px / 100px 176px,
+  linear-gradient(-30deg, transparent 4.5%, #222 4.5%, #222 5%, transparent 5%) 50px 61px / 100px 176px,
+  linear-gradient(-30deg, transparent 4.5%, #222 4.5%, #222 5%, transparent 5%) 25px 17px / 100px 176px,
+  linear-gradient(-30deg, transparent 3.2%, #222 3.2%, #222 3.7%, transparent 3.7%) 100px 152px / 100px 176px,
+  linear-gradient(-30deg, transparent 3.2%, #222 3.2%, #222 3.7%, transparent 3.7%) 75px 108px / 100px 176px,
+  linear-gradient(-30deg, transparent 3.2%, #222 3.2%, #222 3.7%, transparent 3.7%) 50px 64px / 100px 176px,
+  linear-gradient(-30deg, transparent 3.2%, #222 3.2%, #222 3.7%, transparent 3.7%) 25px 20px / 100px 176px,
+  linear-gradient(30deg, transparent 4.5%, #222 4.5%, #222 5%, transparent 5%) 150px 149px / 100px 176px,
+  linear-gradient(30deg, transparent 4.5%, #222 4.5%, #222 5%, transparent 5%) 125px 105px / 100px 176px,
+  linear-gradient(30deg, transparent 4.5%, #222 4.5%, #222 5%, transparent 5%) 100px 61px / 100px 176px,
+  linear-gradient(30deg, transparent 4.5%, #222 4.5%, #222 5%, transparent 5%) 75px 17px / 100px 176px,
+  linear-gradient(30deg, transparent 3.2%, #222 3.2%, #222 3.7%, transparent 3.7%) 150px 152px / 100px 176px,
+  linear-gradient(30deg, transparent 3.2%, #222 3.2%, #222 3.7%, transparent 3.7%) 125px 108px / 100px 176px,
+  linear-gradient(30deg, transparent 3.2%, #222 3.2%, #222 3.7%, transparent 3.7%) 100px 64px / 100px 176px,
+  linear-gradient(30deg, transparent 3.2%, #222 3.2%, #222 3.7%, transparent 3.7%) 75px 20px / 100px 176px,
+  linear-gradient(-30deg, transparent calc(50% - .5px), #222 calc(50% - .5px), #222 calc(50% + .5px), transparent calc(50% + .5px)) 25px 88px / 50px 88px,
+  linear-gradient(30deg, transparent calc(50% - .5px), #222 calc(50% - .5px), #222 calc(50% + .5px), transparent calc(50% + .5px)) 25px 88px / 50px 88px,
+  linear-gradient(-30deg, transparent calc(50% - .5px), #222 calc(50% - .5px), #222 calc(50% + .5px), transparent calc(50% + .5px)) 0 44px / 50px 88px,
+  linear-gradient(30deg, transparent calc(50% - .5px), #222 calc(50% - .5px), #222 calc(50% + .5px), transparent calc(50% + .5px)) 0 44px / 50px 88px;
+}

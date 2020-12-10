@@ -1,0 +1,46 @@
+<header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4" id="nav-prizebox">
+          <h4 class="text-white"><%= user.username %></h4>
+
+          <ul class="list-unstyled text-white">
+            <% if(user.point <= 100) { %>
+            <li class="text-muted"> todoを達成してポイントを貯めよう！
+            </li>
+            <% } %>
+            <li>現在の所持ポイント: <%= user.point %></li>
+            <!-- TODO  称号を表示させる　-->
+          </ul>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Link</h4>
+          <ul class="list-unstyled">
+            <li><a href="/home/shop" class="text-white"><i style="color: aliceblue;" class="fas fa-cart-plus"></i>
+                ショップ</a></li>
+            <li><a href="/user/setting" class="text-white"><i style="color:aliceblue;" class="fa fa-cog"></i> ユーザー設定</a>
+            </li>
+            <li><a href="/logout" class="text-white"><i style="color:aliceblue;" class="fas fa-sign-out-alt"></i>
+                ログアウト</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="/home" class="navbar-brand  d-flex align-items-center">
+        <strong>Home</strong>
+      </a>
+      <a href="/home/shop" class="text-white navbar-brand d-flex align-items-center">
+        <strong>Shop</strong></a>
+      <button class="navbar-toggler" id="navbar" type="button" data-toggle="collapse" data-target="#navbarHeader"
+        aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <strong class="text-white" id="username"></strong>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>

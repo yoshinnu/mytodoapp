@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+
+<head>
+  <%- include("./share/stylesheets.ejs") %>
+  <meta charset=" utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Jekyll v3.8.5">
+  <title><%= title %></title>
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+</head>
+
+<body style="background-color: rgb(39, 39, 41);">
+  <main role="main">
+    <section class="jumbotron text-center edit-create-bg">
+      <div class="container">
+        <h1 class="jumbotron-heading font-weight-bold"><%= title %></h1>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="col-md-6 mx-auto">
+          <div class="card mb-6 mx-auto shadow-sm" style="border-radius: 10px;">
+
+            <div class="card-body" style="border-radius: 10px;">
+              <form action="/home/edit/post" method="POST" onsubmit="return check()" id="create">
+                <div>
+                  <label>Title: </label>
+                </div>
+                <input type="text" name="title" style="white-space: pre;" class="text-black"
+                  value=<%= todoData.title %>>
+                <input type="hidden" name="id" value=<%= todoData.id %>>
+                <div>
+                  <label>Text: </label>
+                </div>
+                <p> <textarea type="text" name="text" class="text-black" cols="40"
+                    rows="3"><%= todoData.text %></textarea></p>
+                <div>
+                  <label>Time limit: </label>
+                </div>
+                <p class="text-black"><input type="datetime" name="limit" id="calendar" value=<%= todoData.limit %>></p>
+                <div>
+                  <% if(todoData.status >= 1 ){ %>
+                  <label><input type="checkbox" id="statusCheck" checked> Repeat <select id="statusSelect" name="status"
+                      style="display: none;">
+                      <option value="0" style="display: none;"></option>
+                      <option value="1">1days</option>
+                      <option value="2">2days</option>
+                      <option value="3">3days</option>
+                      <option value="4">4days</option>
+                      <option value="5">5days</option>
+                      <option value="6">6days</option>
+                      <option value="7">7days</option>
+                    </select></label>
+                  <% }else{ %>
+                  <label><input type="checkbox" id="statusCheck"> Repeat <select id="statusSelect" name="status"
+                      style="display: none;">
+                      <option value="0" style="display: none;"></option>
+                      <option value="1">1days</option>
+                      <option value="2">2days</option>
+                      <option value="3">3days</option>
+                      <option value="4">4days</option>
+                      <option value="5">5days</option>
+                      <option value="6">6days</option>
+                      <option value="7">7days</option>
+                    </select></label>
+                  <% } %>
+                  <% if (locals.errors) { %>
+                  <% if (errors && errors.length !== 0) { for(let i = 0 ; i < errors.length;i++) { %>
+                  <div class="alert alert-danger"><%= errors[i].msg %></div>
+                  <% }}} %>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <input type="submit" class="btn btn-sm btn-outline-secondary" id="btn-done" value="Done">
+                    <input type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='/home'"
+                      value="Back">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <%- include("./share/footer.ejs") %>
+  <%- include("./share/javascript.ejs") %>
+  <script src="/public/javascripts/selectdays.js"></script>
+</body>
+
+</html>

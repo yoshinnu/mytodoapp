@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+<head>
+  <%- include("./share/stylesheets.ejs") %>
+  <meta charset=" utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Jekyll v3.8.5">
+  <title><%= title %></title>
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+</head>
+
+<body style="background-color: rgb(39, 39, 41);">
+  <%- include("./share/navbar.ejs") %>
+  <main role="main">
+    <section class="jumbotron home shop-bg">
+      <strong>
+        <h1 class="jumbotron-heading text-white home"><%= title %></h1>
+        <p class="text-black" id="username"></p>
+      </strong>
+      <div class="container" style="min-height: 250px;">
+        <div class="col-sm-8 col-md-7 py-4">
+        </div>
+      </div>
+    </section>
+
+    <div class="album  bg-light">
+      <p style="padding-left: 20px;">管理者名　<%= user.username%></p>
+      <div style="padding-left: 100px;">
+        <a href="/home" class="btn btn-secondary my-2" id="doingBtn" style="width: 150px;">UserList</a>
+        <a href="/home/shop" class="btn btn-primary my-2" id='compliteBtn' style="width: 150px;">ShopEdit</a>
+        <a href="/admin/shop/create" class="btn btn-secondary my-2" style="width: 150px;">CreatePrize</a>
+      </div>
+      <div class="container py-3 text-center">
+        <strong class="shop-cardstyle-title">CARD STYLE</strong>
+        <div class="row py-5">
+          <% for(let i=0;i < prizeList.length; i++){ %>
+          <div class="col-md-3">
+            <div class="card mb-3 shadow-sm" style="border-radius: 10px;">
+              <div class="card-body shopcard <%= prizeList[i].name %> " style="border-radius: 10px;">
+                <div class="btn-group">
+                  <form action="/admin/shop/edit" method="GET" id="adminedit">
+                    <input type="hidden" name="id" value=<%= prizeList[i].id %>>
+                    <input type="hidden" name="pointcost" value=<%= prizeList[i].pointcost %>>
+                    <input type="submit" class="btn btn-sm btn-dark" id="btn-done" value="Edit">
+                  </form>
+                  <form action="/admin/shop/delete/post" method="POST" onsubmit="return check()" id="admindelete">
+                    <input type="hidden" name="id" value=<%= prizeList[i].id %>>
+                    <input type="submit" class="btn btn-sm btn-danger" id="btn-done" value="Delete">
+                  </form>
+                  <button type="button" class="btn btn-sm btn-info">
+                    point<%= prizeList[i].pointcost %></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }; %>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+  <%- include("./share/footer.ejs") %>
+  <%- include("./share/javascript.ejs") %>
+  <script></script>
+</body>
+
+</html>
