@@ -12,9 +12,10 @@ const user = {
   login_date: date,
   twwitter_id: '1dfjklsfd'
 }
-model.users.create(user);
-model.users.findOne({ where: { id: 1 } })
-  .then(user => console.log(user));
+// model.users.create(user);
+// model.users.findOne({ where: { id: 1 } })
+//   .then(user => console.log(user));
+
 // let prize = {
 //   pointcost: 4000,
 //   name: 'text-white tanjiro'
@@ -31,3 +32,14 @@ model.users.findOne({ where: { id: 1 } })
 //   name: 'zenitsu'
 // }
 // model.prizes.create(prize);
+async function test() {
+  const a = await model.prizes.findAll({
+    include: {
+      model: model.users,
+      required: true,
+      where: { id: 1 }
+    }
+  });
+  console.log(a[0].users[0].username);
+}
+test();

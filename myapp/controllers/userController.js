@@ -55,7 +55,7 @@ const getUserMailPage = (req, res) => {
 const postUserSend = async (req, res) => {
   const receiveMailAdrres = process.env.EMAILADRESS;
   await mailer.sendMail(req.body.title, req.body.text, receiveMailAdrres);
-  res.redirect('/');
+  res.status(200).redirect('/');
 }
 module.exports = {
   getUserSettingPage,
