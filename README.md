@@ -1,10 +1,5 @@
 # mytodoapp
-
-
-
-# DEMO
-
-"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
+![mytodo (1)](https://user-images.githubusercontent.com/71926129/102877836-b81cc180-448a-11eb-962d-90577015c93d.png)
 
 # Features
 
