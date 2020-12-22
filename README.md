@@ -1,12 +1,6 @@
 # mytodoapp
-![スクリーンショット 2020-12-13 17 41 11](https://user-images.githubusercontent.com/71926129/102876308-5e1afc80-4488-11eb-8c8b-7646cc0a860c.jpg)
 
 
-# Name（リポジトリ/プロジェクト/OSSなどの名前）
-
-分かりやすくてカッコイイ名前をつける（今回は"hoge"という名前をつける）
-
-"hoge"が何かを簡潔に紹介する
 
 # DEMO
 
@@ -15,7 +9,7 @@
 # Features
 
 "hoge"のセールスポイントや差別化などを説明する
-
+![スクリーンショット 2020-12-13 17 41 11](https://user-images.githubusercontent.com/71926129/102876308-5e1afc80-4488-11eb-8c8b-7646cc0a860c.jpg)
 # Requirement
 
 "hoge"を動かすのに必要なライブラリなどを列挙する
