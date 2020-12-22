@@ -1,5 +1,4 @@
-<pre>
-# mytodoapp
+## mytodoapp
 ![mytodo (1)](https://user-images.githubusercontent.com/71926129/102877836-b81cc180-448a-11eb-962d-90577015c93d.png)
 AWSで公開してます。　https://alb.enjoy-mytodo.work
 # 概要
@@ -12,11 +11,13 @@ AWSで公開してます。　https://alb.enjoy-mytodo.work
 SPA、orm,AWS,設計のアウトプットを意識して作成
 
 # 使用技術
-フロント  
+_フロント_  
+<pre>
  javascript  
  html  
- css  
-バックエンド  
+ css 
+ </pre>
+_バックエンド_  
  node v14.15.1 express  
  mysql v5.7  
 インフラ  
@@ -131,4 +132,3 @@ python demo.py
 社内向けなら社外秘であることを明示してる
  
 "hoge" is Confidential.
-</pre>
