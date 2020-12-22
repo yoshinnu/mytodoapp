@@ -23,118 +23,44 @@ __フロント__
 __バックエンド__  
  ・node v14.15.1 express  
  ・mysql v5.7  
+
 __インフラ__  
 ・本番環境  
+AWS(EC2,RDS,Route53,VPC,ALB,ACM)
+nginx  
+
+※httpアクセスはhttpsにリダイレクト  
+
+
 ![スクリーンショット 2020-12-13 17 41 11](https://user-images.githubusercontent.com/71926129/102876308-5e1afc80-4488-11eb-8c8b-7646cc0a860c.jpg)
-※webサーバーはnginx、cicleciは現在構築中  
-　httpアクセスはhttpsにリダイレクト
 
 ・開発環境  
 docker,nginx,supervisorを使用  
 
 本番環境では作成期限のためECR,ECSではなくEC2使用
-# Requirement
 
-"hoge"を動かすのに必要なライブラリなどを列挙する
+# 機能
+・CRUD  
+・中間テーブルによるいいね機能  
+・SPA  
+・管理者機能  
+・jwttokenによる認証  
+・外部APIの使用(追加予定)  
+・node-schduleによるDB処理  
 
-* huga 3.5.2
-* hogehuga 1.0.2
+# localでの使用方法
+1. app.env,mysql.envの作成  
+.env.exampleに沿って作成  
 
-# Installation
-
-Requirementで列挙したライブラリなどのインストール方法を説明する
-
+2. コンテナのbuild
 ```bash
-pip install huga_package
+cd myapp 
+docker-compose up -d
 ```
-
-# Usage
-
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
-
+3. npmモジュールのインストール、ormのマイグレーション  
 ```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
+npm install
+npx sequelize db:migrate
 ```
-
-# Note
-
-注意点などがあれば書く
-
-# Author
-
-作成情報を列挙する
-
-* 作成者
-* 所属
-* E-mail
-
-# License
-ライセンスを明示する
-
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
-
-社内向けなら社外秘であることを明示してる
-
-"hoge" is Confidential.
-
-# Name（リポジトリ/プロジェクト/OSSなどの名前）
- 
-分かりやすくてカッコイイ名前をつける（今回は"hoge"という名前をつける）
- 
-"hoge"が何かを簡潔に紹介する
- 
-# DEMO
- 
-"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
- 
-# Features
- 
-"hoge"のセールスポイントや差別化などを説明する
- 
-# Requirement
- 
-"hoge"を動かすのに必要なライブラリなどを列挙する
- 
-* huga 3.5.2
-* hogehuga 1.0.2
- 
-# Installation
- 
-Requirementで列挙したライブラリなどのインストール方法を説明する
- 
-```bash
-pip install huga_package
-```
- 
-# Usage
- 
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
- 
-```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
-```
- 
-# Note
- 
-注意点などがあれば書く
- 
-# Author
- 
-作成情報を列挙する
- 
-* 作成者
-* 所属
-* E-mail
- 
-# License
-ライセンスを明示する
- 
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
- 
-社内向けなら社外秘であることを明示してる
- 
-"hoge" is Confidential.
+# 感想
+今回
