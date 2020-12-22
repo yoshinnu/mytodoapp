@@ -12,7 +12,7 @@ AWSで公開してます。　https://alb.enjoy-mytodo.work
 
 ・技術のアウトプット  
 
-SPA、orm,AWS,設計のアウトプットを意識して作成
+SPA、orm,AWSのアウトプットを意識して作成
 
 # 使用技術
 __フロント__  
@@ -20,13 +20,14 @@ __フロント__
  ・ejs  
  ・css 
  
-_バックエンド_  
+__バックエンド__  
  ・node v14.15.1 express  
  ・mysql v5.7  
-インフラ  
+__インフラ__  
 ・本番環境  
 ![スクリーンショット 2020-12-13 17 41 11](https://user-images.githubusercontent.com/71926129/102876308-5e1afc80-4488-11eb-8c8b-7646cc0a860c.jpg)
 ※webサーバーはnginx、cicleciは現在構築中  
+　httpアクセスはhttpsにリダイレクト
 
 ・開発環境  
 docker,nginx,supervisorを使用  
